@@ -51,6 +51,13 @@ def list_patient(body)
 		puts "カナ:#{patient["WholeName_inKana"]}"
 		puts "生年月日:#{patient["BirthDate"]}"
 		puts "作成日:#{patient["CreateDate"]}"
+		if patient["Sex"] == "1"
+			patient_Sex ="男"
+		else
+			patient_Sex ="女"
+		end
+		puts "性別:#{patient_Sex}"
+
 		puts "最終更新日:#{patient["UpdateDate"]}"
 		puts "===================="
 	end
