@@ -36,10 +36,10 @@ BODY = <<EOF
 EOF
 
 #編集
-	puts "===================="
-	patient_start = ARGV[0]
+  puts "===================="
+  patient_start = ARGV[0]
   puts "開始日:#{patient_start}"
-	patient_end = ARGV[1]
+  patient_end = ARGV[1]
   puts "終了日:#{patient_end}"
 #編集終わり
 
