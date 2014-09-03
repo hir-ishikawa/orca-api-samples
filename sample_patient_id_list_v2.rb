@@ -24,16 +24,6 @@ req = Net::HTTP::Post.new("/api01rv2/patientlst1v2?class=01")
 # class :02 新規対象
 #
 #
-BODY = <<EOF
-
-<data>
-	<patientlst1req type="record">
-		<Base_StartDate type="string">2012-06-01</Base_StartDate>
-		<Base_EndDate type="string">2014-09-30</Base_EndDate>
-		<Contain_TestPatient_Flag type="string">1</Contain_TestPatient_Flag>
-	</patientlst1req>
-</data>
-EOF
 
 #編集
   puts "===================="
@@ -42,6 +32,16 @@ EOF
   patient_end = ARGV[1]
   puts "終了日:#{patient_end}"
 #編集終わり
+
+BODY = <<EOF
+<data>
+	<patientlst1req type="record">
+		<Base_StartDate type="string">#{patient_start}</Base_StartDate>
+		<Base_EndDate type="string">#{patient_end}</Base_EndDate>
+		<Contain_TestPatient_Flag type="string">1</Contain_TestPatient_Flag>
+	</patientlst1req>
+</data>
+EOF
 
 def list_patient(body)
 	root = Crack::XML.parse(body)
@@ -53,6 +53,8 @@ def list_patient(body)
 	end
 
 	pinfo = root["xmlio2"]["patientlst1res"]["Patient_Information"]
+	
+	
 	pinfo.each do |patient|
 		puts "===================="
 		puts "名前:#{patient["WholeName"]}"
