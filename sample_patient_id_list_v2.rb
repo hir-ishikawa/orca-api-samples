@@ -66,14 +66,6 @@ def list_patient(body)
 		puts "性別:#{patient_Sex}"
 		puts "作成日:#{patient["CreateDate"]}"
 		puts "最終更新日:#{patient["UpdateDate"]}"
-		
-		#編集
-		#patient_start = ARGV[0]
-		#puts "開始日:#{patient_start}"
-		#patient_end = ARGV[1]
-		#puts "終了日:#{patient_end}"
-		#編集終わり
-		
 		puts "===================="
 	end
 
