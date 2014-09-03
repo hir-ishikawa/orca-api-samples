@@ -35,6 +35,14 @@ BODY = <<EOF
 </data>
 EOF
 
+#編集
+	puts "===================="
+	patient_start = ARGV[0]
+  puts "開始日:#{patient_start}"
+	patient_end = ARGV[1]
+  puts "終了日:#{patient_end}"
+#編集終わり
+
 def list_patient(body)
 	root = Crack::XML.parse(body)
 	#pp root
@@ -50,15 +58,22 @@ def list_patient(body)
 		puts "名前:#{patient["WholeName"]}"
 		puts "カナ:#{patient["WholeName_inKana"]}"
 		puts "生年月日:#{patient["BirthDate"]}"
-		puts "作成日:#{patient["CreateDate"]}"
 		if patient["Sex"] == "1"
 			patient_Sex ="男"
 		else
 			patient_Sex ="女"
 		end
 		puts "性別:#{patient_Sex}"
-
+		puts "作成日:#{patient["CreateDate"]}"
 		puts "最終更新日:#{patient["UpdateDate"]}"
+		
+		#編集
+		#patient_start = ARGV[0]
+		#puts "開始日:#{patient_start}"
+		#patient_end = ARGV[1]
+		#puts "終了日:#{patient_end}"
+		#編集終わり
+		
 		puts "===================="
 	end
 
